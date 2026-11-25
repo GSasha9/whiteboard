@@ -16,7 +16,10 @@
     "format:check": "prettier --check .",
     "lint:all": "npm run lint && npm run lint:styles",
     "test:ci": "ng test --watch=false",
-    "check:all": "npm run format && npm run lint:all && npm run test:ci"
+    "check:all": "npm run format && npm run lint:all && npm run test:ci",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "npm run build && wrangler dev",
+    "cf-typegen": "wrangler types"
   },
   "private": true,
   "packageManager": "npm@11.6.2",
@@ -51,6 +54,8 @@
     "stylelint-order": "^8.1.3",
     "typescript": "~5.9.2",
     "typescript-eslint": "8.59.2",
-    "vitest": "^4.0.8"
+    "vitest": "^4.0.8",
+    "wrangler": "^4.168.0",
+    "xhr2": "^0.2.1"
   }
 }
