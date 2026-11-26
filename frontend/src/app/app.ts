@@ -1,12 +1,16 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { EditingToolbarComponent } from './components/editing-toolbar/editing-toolbar';
+import { PropertiesPanelComponent } from './components/properties-panel/properties-panel';
+import { TopToolbarComponent } from './components/top-toolbar/top-toolbar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [
+    EditingToolbarComponent,
+    PropertiesPanelComponent,
+    TopToolbarComponent,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-export class App {
-  protected readonly title = signal('app');
-}
+export class App {}

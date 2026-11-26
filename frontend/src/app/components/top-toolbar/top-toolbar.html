@@ -1,0 +1,26 @@
+<header class="topbar">
+  <div class="board-identity">
+    <app-icon-button
+      icon="menu"
+      label="Open board menu"
+      size="small"
+    ></app-icon-button>
+    <span class="identity-divider" aria-hidden="true"></span>
+    <div class="board-name">
+      <span class="board-mark" aria-hidden="true">w</span>
+      <div>
+        <h1 data-testid="board-title">Untitled Board</h1>
+        <span class="board-status">Board workspace</span>
+      </div>
+    </div>
+  </div>
+  <div class="action-group" aria-label="Board actions">
+    @for (action of actions; track action.icon) {
+      <app-icon-button
+        [icon]="action.icon"
+        [label]="action.label"
+        size="small"
+      ></app-icon-button>
+    }
+  </div>
+</header>

@@ -1,0 +1,12 @@
+<nav class="tool-rail" aria-label="Editing tools">
+  @for (tool of tools; track tool.icon; let index = $index) {
+    @if (index === 2 || index === 8) {
+      <span class="tool-divider" aria-hidden="true"></span>
+    }
+    <app-icon-button
+      [icon]="tool.icon"
+      [label]="tool.label"
+      [active]="index === 0"
+    ></app-icon-button>
+  }
+</nav>

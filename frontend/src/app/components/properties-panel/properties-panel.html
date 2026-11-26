@@ -1,0 +1,84 @@
+<aside class="properties" aria-label="Style options">
+  <div class="panel-heading">
+    <span>Style</span>
+  </div>
+
+  <section class="property-section">
+    <h2>Color</h2>
+    <div class="swatches">
+      @for (color of colors; track color; let index = $index) {
+        <button
+          class="swatch"
+          [class.swatch--selected]="index === 0"
+          [style.--swatch-color]="color"
+          [attr.aria-label]="'Color ' + (index + 1)"
+          [attr.aria-pressed]="index === 0"
+          type="button"
+        ></button>
+      }
+      <button class="add-color" type="button" aria-label="Add color">+</button>
+    </div>
+  </section>
+
+  <section class="property-section">
+    <h2>Stroke</h2>
+    <div class="stroke-options" aria-label="Stroke width">
+      <button type="button" aria-label="Thin stroke">
+        <span class="stroke-line stroke-line--thin"></span>
+      </button>
+      <button class="option-selected" type="button" aria-label="Medium stroke">
+        <span class="stroke-line"></span>
+      </button>
+      <button type="button" aria-label="Thick stroke">
+        <span class="stroke-line stroke-line--thick"></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="property-section compact-section">
+    <h2>Line style</h2>
+    <div class="line-options">
+      <button class="option-selected" type="button" aria-label="Solid line">
+        <span></span>
+      </button>
+      <button type="button" aria-label="Dashed line">
+        <span class="line-dash"></span>
+      </button>
+      <button type="button" aria-label="Dotted line">
+        <span class="line-dots"></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="property-section compact-section">
+    <h2>Fill</h2>
+    <div class="fill-options">
+      <button
+        class="fill-solid option-selected"
+        type="button"
+        aria-label="Solid fill"
+      ></button>
+      <button
+        class="fill-hatch"
+        type="button"
+        aria-label="Hatched fill"
+      ></button>
+      <button class="fill-none" type="button" aria-label="No fill"></button>
+    </div>
+  </section>
+
+  <section class="property-section size-section">
+    <h2>Size</h2>
+    <div class="size-options">
+      @for (size of sizes; track size; let index = $index) {
+        <button
+          [class.option-selected]="index === 1"
+          type="button"
+          [attr.aria-label]="size + ' size'"
+        >
+          <span [class]="'size-dot size-dot--' + size.toLowerCase()"></span>
+        </button>
+      }
+    </div>
+  </section>
+</aside>

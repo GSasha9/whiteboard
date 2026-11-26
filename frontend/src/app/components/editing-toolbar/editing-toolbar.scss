@@ -1,0 +1,34 @@
+:host {
+  display: block;
+}
+
+.tool-rail {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 10px;
+  border: 1px solid #e5e8ee;
+  border-radius: 17px;
+  background: rgb(255 255 255 / 97%);
+  box-shadow: 0 8px 28px rgb(40 50 70 / 12%);
+}
+
+.tool-divider {
+  width: 1px;
+  height: 27px;
+  margin: 0 5px;
+  background: #e9ebef;
+}
+
+@media (width <= 740px) {
+  .tool-rail {
+    max-width: calc(100vw - 24px);
+    gap: 1px;
+    padding: 6px;
+    overflow-x: auto;
+  }
+
+  .tool-divider {
+    margin: 0 2px;
+  }
+}
