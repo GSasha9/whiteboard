@@ -1,0 +1,55 @@
+:host {
+  display: inline-flex;
+}
+
+.icon-button {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #505763;
+  cursor: pointer;
+  transition:
+    background-color 140ms ease,
+    color 140ms ease,
+    transform 140ms ease;
+}
+
+.icon-button:hover {
+  background: #f0f3f8;
+  color: #202633;
+}
+
+.icon-button:active {
+  transform: scale(0.96);
+}
+
+.icon-button:focus-visible {
+  outline: 2px solid #6b8cff;
+  outline-offset: 2px;
+}
+
+.icon-button--small {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+}
+
+.icon-button--active {
+  background: #eaf0ff;
+  color: #4268e8;
+}
+
+.icon-button--active:hover {
+  background: #dfe8ff;
+  color: #3459d4;
+}
+
+svg {
+  width: 19px;
+  height: 19px;
+}

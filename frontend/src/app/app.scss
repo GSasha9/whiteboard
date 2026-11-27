@@ -1,3 +1,97 @@
-body {
-  margin: 0;
+:host {
+  display: block;
+  width: 100%;
+  height: 100dvh;
+}
+
+.whiteboard,
+.canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.whiteboard {
+  overflow: hidden;
+  background: #f8f9fb;
+}
+
+.canvas {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #fafbfd;
+}
+
+.canvas-dots {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(#dfe3e9 0.75px, transparent 0.75px);
+  background-position: center center;
+  background-size: 22px 22px;
+  opacity: 0.72;
+}
+
+.top-toolbar,
+.properties-panel,
+.editing-toolbar {
+  position: absolute;
+  z-index: 5;
+}
+
+.top-toolbar {
+  top: 18px;
+  left: 50%;
+  width: min(590px, calc(100% - 36px));
+  transform: translateX(-50%);
+}
+
+.properties-panel {
+  top: 98px;
+  right: 24px;
+}
+
+.editing-toolbar {
+  bottom: 24px;
+  left: 50%;
+  max-width: calc(100% - 24px);
+  transform: translateX(-50%);
+}
+
+.canvas-hint {
+  position: absolute;
+  bottom: 34px;
+  left: 24px;
+  color: #a6adb7;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+@media (width <= 800px) {
+  .properties-panel {
+    top: 88px;
+    right: 12px;
+  }
+}
+
+@media (width <= 520px) {
+  .top-toolbar {
+    top: 10px;
+    width: calc(100% - 20px);
+  }
+
+  .properties-panel {
+    top: 78px;
+    right: 10px;
+    transform: scale(0.84);
+    transform-origin: top right;
+  }
+
+  .editing-toolbar {
+    bottom: 14px;
+  }
+
+  .canvas-hint {
+    display: none;
+  }
 }
