@@ -3,10 +3,74 @@
     @if (index === 2 || index === 8) {
       <span class="tool-divider" aria-hidden="true"></span>
     }
-    <app-icon-button
-      [icon]="tool.icon"
-      [label]="tool.label"
-      [active]="index === 0"
-    ></app-icon-button>
+    <div class="tool-wrapper">
+      <app-icon-button
+        [icon]="tool.icon"
+        [label]="tool.label"
+        [active]="
+          index === 0
+            ? activeTool() === 'select'
+            : index === 3 && activeTool() === 'shape'
+        "
+        [ariaExpanded]="index === 3 ? shapesMenuOpen : null"
+        (pressed)="handleToolPress(index, $event)"
+      ></app-icon-button>
+      @if (index === 3 && shapesMenuOpen) {
+        <div class="shapes-menu" role="menu" aria-label="Shapes">
+          @for (shape of shapes; track shape.type) {
+            <button
+              class="shape-option"
+              [class.shape-option--active]="selectedShape() === shape.type"
+              [attr.aria-checked]="selectedShape() === shape.type"
+              role="menuitemradio"
+              type="button"
+              (click)="selectShape(shape.type, $event)"
+            >
+              <span class="shape-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  @switch (shape.type) {
+                    @case ('rectangle') {
+                      <rect x="4" y="5" width="16" height="14" rx="1" />
+                    }
+                    @case ('circle') {
+                      <circle cx="12" cy="12" r="8" />
+                    }
+                    @case ('triangle') {
+                      <path d="m12 4 9 16H3L12 4Z" />
+                    }
+                    @case ('line') {
+                      <path d="M4 20 20 4" />
+                    }
+                    @case ('arrow') {
+                      <path d="M4 18 19 6M10 6h9v9" />
+                    }
+                    @case ('star') {
+                      <path
+                        d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z"
+                      />
+                    }
+                  }
+                </svg>
+              </span>
+              <span>{{ shape.label }}</span>
+            </button>
+          }
+        </div>
+      }
+    </div>
   }
+  <span class="tool-divider" aria-hidden="true"></span>
+  <div class="zoom-indicator" aria-label="Canvas zoom: 100 percent">
+    <span aria-hidden="true">−</span>
+    <span class="zoom-value">100%</span>
+    <span aria-hidden="true">+</span>
+  </div>
 </nav>
+<!--check-->

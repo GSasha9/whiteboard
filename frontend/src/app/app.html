@@ -1,64 +1,10 @@
 <main class="whiteboard">
   <section class="canvas" aria-label="Whiteboard canvas">
     <div class="canvas-dots" aria-hidden="true"></div>
+    <app-whiteboard-canvas class="whiteboard-canvas"></app-whiteboard-canvas>
     <app-top-toolbar class="top-toolbar"></app-top-toolbar>
     <app-properties-panel class="properties-panel"></app-properties-panel>
-
-    <div class="board-content" aria-label="Static whiteboard examples">
-      <article class="note-card note-card--intro">
-        <span class="note-eyebrow">A little space to think</span>
-        <h2>Ideas start<br />somewhere.</h2>
-        <p>Bring your thoughts together<br />and see where they lead.</p>
-      </article>
-
-      <article class="note-card note-card--prompt">
-        <span class="note-eyebrow">Today’s thought</span>
-        <p>What if we made<br />it simpler?</p>
-        <span class="note-foot">A good place to begin</span>
-      </article>
-
-      <article class="note-card note-card--list">
-        <span class="note-eyebrow">A few things to explore</span>
-        <p><span class="list-dot"></span>Start with the why</p>
-        <p><span class="list-dot"></span>Make room for ideas</p>
-        <p><span class="list-dot"></span>Keep it human</p>
-      </article>
-
-      <div
-        class="sticky-note sticky-note--sun"
-        aria-label="Sticky note: big ideas, small steps"
-      >
-        big ideas,<br />small steps
-        <span>✳</span>
-      </div>
-      <div
-        class="sticky-note sticky-note--mint"
-        aria-label="Sticky note: make it happen"
-      >
-        make it<br />happen
-        <span>↗</span>
-      </div>
-      <div class="selection-box" aria-hidden="true"></div>
-
-      <svg
-        class="sketch-layer"
-        viewBox="0 0 1200 800"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <path
-          class="sketch-line"
-          d="M220 475 C260 445 300 510 330 475 S365 455 385 478"
-        />
-        <path class="sketch-arrow" d="M910 420 C955 395 1000 403 1043 430" />
-        <path class="sketch-arrow-head" d="M1025 414 L1046 432 L1018 438" />
-      </svg>
-    </div>
-
     <app-editing-toolbar class="editing-toolbar"></app-editing-toolbar>
-    <div class="zoom-indicator" aria-label="Canvas zoom: 100 percent">
-      <span>−</span><span class="zoom-value">100%</span><span>+</span>
-    </div>
     <span class="canvas-hint">Made for ideas</span>
   </section>
 </main>
